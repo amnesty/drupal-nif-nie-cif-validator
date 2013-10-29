@@ -1,0 +1,83 @@
+<?php
+    require_once( 'spanish-tax-identification-numbers.php' );
+
+   /**
+    * Implementation of hook_webform_validation_validators().
+    */
+    function spanishidsvalidator_webform_validation_validators() {
+        return
+            array(
+                'validate_spanish_ids' => array(
+                    'name' => 'Validate NIF/NIE/CIF',
+                    'description' => t( 'Verifies that a user-entered value matches a NIF/NIE/CIF and verifies it\'s control digit.' ),
+                    'component_types' => array( 'textfield' ) ),
+
+                'validate_nif' => array(
+                    'name' => 'Validate NIF',
+                    'description' => t( 'Verifies that a user-entered value matches a NIF and verifies it\'s control digit.' ),
+                    'component_types' => array( 'textfield' ) ),
+
+                'validate_nie' => array(
+                    'name' => 'Validate NIE',
+                    'description' => t( 'Verifies that a user-entered value matches a NIE and verifies it\'s control digit.' ),
+                    'component_types' => array( 'textfield' ) ),
+
+                'validate_cif' => array(
+                    'name' => 'Validate CIF',
+                    'description' => t( 'Verifies that a user-entered value matches a CIF and verifies it\'s control digit.' ),
+                    'component_types' => array( 'textfield' ) ),
+                );
+    }
+
+   /**
+    * Implementation of hook_webform_validation_validate().
+    */
+    function spanishidsvalidator_webform_validation_validate($validator_name, $items, $components, $rule) {
+        $errors = array();
+
+        if ( $items ) {
+            switch ( $validator_name ) {
+                case 'validate_spanish_ids':
+                    foreach ( $items as $key => $value ) {
+                        if ( $value && ( !isValidIdNumber( $value ) ) ) {
+                            $errors[$key] = t( '%item is not a valid Spanish Id', array( '%item' => $components[$key]['name'] ) );
+                        }
+                    }
+
+                    return $errors;
+                    break;
+
+                case 'validate_nif':
+                    foreach ( $items as $key => $value ) {
+                        if ( $value && ( !isValidNIF( $value ) ) ) {
+                            $errors[$key] = t( '%item is not a valid NIF', array( '%item' => $components[$key]['name'] ) );
+                        }
+                    }
+
+                    return $errors;
+                    break;
+
+                case 'validate_nie':
+                    foreach ( $items as $key => $value ) {
+                        if ( $value && ( !isValidNIE( $value ) ) ) {
+                            $errors[$key] = t( '%item is not a valid NIE', array( '%item' => $components[$key]['name'] ) );
+                        }
+                    }
+
+                    return $errors;
+                    break;
+
+                case 'validate_cif':
+                    foreach ( $items as $key => $value ) {
+                        if ( $value && ( !isValidCIF( $value ) ) ) {
+                            $errors[$key] = t( '%item is not a valid CIF', array( '%item' => $components[$key]['name'] ) );
+                        }
+                    }
+
+                    return $errors;
+                    break;
+
+            }
+        }
+    }
+?>

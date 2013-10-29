@@ -1,0 +1,11 @@
+;$Id$
+
+name = Spanish Ids Validator
+description = Additional validations for NIFs, NIEs and CIFs.
+core = 7.x
+package = Webform
+
+files[] = spanishidsvalidator.module
+
+dependencies[] = webform
+dependencies[] = webform_validation
