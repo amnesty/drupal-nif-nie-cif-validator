@@ -11,10 +11,15 @@ To find them, go to your Content menu and edit a webform (or create a new one).
 Then, go to the Webform tab and open the Form Validation option.
 There, you'll find the new validations:
 
-* *Validate NIF/NIE/CIF*: Verifies that a user-entered value matches a NIF/NIE/CIF and verifies it's control digit.
-* *Validate NIF*: Verifies that a user-entered value matches a NIF and verifies it's control digit.
-* *Validate NIE*: Verifies that a user-entered value matches a NIE and verifies it's control digit.
-* *Validate CIF*: Verifies that a user-entered value matches a CIF and verifies it's control digit.
+* Validate NIF/NIE/CIF
+* Validate NIF
+* Validate NIE
+* Validate CIF
+
+The first validation, verifies that a user-entered value matches a NIF/NIE/CIF and verifies it's control digit.
+This option will accept the three type of document numbers.
+
+If you want to perform a specific NIF, NIE or CIF validation, you can use the appropriate option.
 
 Dependencies
 ------------
