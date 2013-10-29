@@ -27,6 +27,11 @@ Dependencies
 * This module needs the [Webform Validation](https://drupal.org/project/webform_validation) module.
 * This module uses the validations written for the [Amnesty International's DataQuality](https://github.com/amnesty/dataquality) project.
 
+Related Drupal Modules
+----------------------
+
+A similar Drupal Module you may be interested in is the [Field NIF](https://drupal.org/project/field_nif) module.
+
 License
 -------
 
