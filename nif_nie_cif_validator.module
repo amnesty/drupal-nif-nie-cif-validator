@@ -4,7 +4,7 @@
    /**
     * Implementation of hook_webform_validation_validators().
     */
-    function spanishidsvalidator_webform_validation_validators() {
+    function nif_nie_cif_validator_webform_validation_validators() {
         return
             array(
                 'validate_spanish_ids' => array(
@@ -32,7 +32,7 @@
    /**
     * Implementation of hook_webform_validation_validate().
     */
-    function spanishidsvalidator_webform_validation_validate($validator_name, $items, $components, $rule) {
+    function nif_nie_cif_validator_webform_validation_validate($validator_name, $items, $components, $rule) {
         $errors = array();
 
         if ( $items ) {
