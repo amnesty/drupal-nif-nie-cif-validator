@@ -9,22 +9,22 @@
             array(
                 'validate_spanish_ids' => array(
                     'name' => 'Validate NIF/NIE/CIF',
-                    'description' => t( 'Verifies that a user-entered value matches a NIF/NIE/CIF and verifies it\'s control digit.' ),
+                    'description' => t( 'Verifies that a user-entered value matches a NIF/NIE/CIF and verifies it\'s check digit.' ),
                     'component_types' => array( 'textfield' ) ),
 
                 'validate_nif' => array(
                     'name' => 'Validate NIF',
-                    'description' => t( 'Verifies that a user-entered value matches a NIF and verifies it\'s control digit.' ),
+                    'description' => t( 'Verifies that a user-entered value matches a NIF and verifies it\'s check digit.' ),
                     'component_types' => array( 'textfield' ) ),
 
                 'validate_nie' => array(
                     'name' => 'Validate NIE',
-                    'description' => t( 'Verifies that a user-entered value matches a NIE and verifies it\'s control digit.' ),
+                    'description' => t( 'Verifies that a user-entered value matches a NIE and verifies it\'s check digit.' ),
                     'component_types' => array( 'textfield' ) ),
 
                 'validate_cif' => array(
                     'name' => 'Validate CIF',
-                    'description' => t( 'Verifies that a user-entered value matches a CIF and verifies it\'s control digit.' ),
+                    'description' => t( 'Verifies that a user-entered value matches a CIF and verifies it\'s check digit.' ),
                     'component_types' => array( 'textfield' ) ),
                 );
     }
