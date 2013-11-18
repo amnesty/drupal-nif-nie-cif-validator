@@ -1,6 +1,6 @@
 ;$Id$
 
-name = Spanish Ids Validator
+name = NIF/NIE/CIF Validator
 description = Additional validations for NIFs, NIEs and CIFs.
 core = 7.x
 package = Webform
