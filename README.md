@@ -1,5 +1,5 @@
-Spanish Ids Validator
-=====================
+Drupal NIF/NIE/CIF Validator
+============================
 
 Implements additional validations to verify the control digit of NIFs, NIEs and CIFs in your Drupal Webforms.
 
