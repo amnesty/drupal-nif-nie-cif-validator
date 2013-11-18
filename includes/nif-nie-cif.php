@@ -1,7 +1,7 @@
 <?php
    /*
     *   This function validates a Spanish identification number
-    *   verifying its control digits.
+    *   verifying its check digits.
     *
     *   NIFs and NIEs are personal numbers.
     *   CIFs are corporates.
@@ -40,7 +40,7 @@
 
    /*
     *   This function validates a Spanish identification number
-    *   verifying its control digits.
+    *   verifying its check digits.
     *
     *   This function is intended to work with NIF numbers.
     *
@@ -49,14 +49,14 @@
     *
     *   This function requires:
     *       - isValidCIFFormat
-    *       - getNIFControlDigit
+    *       - getNIFCheckDigit
     *
     *   This function returns:
     *       TRUE: If specified identification number is correct
     *       FALSE: Otherwise
     *
     *   Algorithm works as described in:
-    *       http://www.interior.gob.es/dni-8/calculo-del-digito-de-control-del-nif-nie-2217
+    *       http://www.interior.gob.es/dni-8/calculo-del-digito-de-Check-del-nif-nie-2217
     *
     *   Usage:
     *       echo isValidNIF( '33576428Q' );
@@ -79,7 +79,7 @@
         $writtenDigit = substr( $docNumber, -1, 1 );
 
         if( isValidNIFFormat( $fixedDocNumber ) ) {
-            $correctDigit = getNIFControlDigit( $fixedDocNumber );
+            $correctDigit = getNIFCheckDigit( $fixedDocNumber );
 
             if( $writtenDigit == $correctDigit ) {
                 $isValid = TRUE;
@@ -91,7 +91,7 @@
 
    /*
     *   This function validates a Spanish identification number
-    *   verifying its control digits.
+    *   verifying its check digits.
     *
     *   This function is intended to work with NIE numbers.
     *
@@ -128,7 +128,7 @@
             if( substr( $fixedDocNumber, 1, 1 ) == "T" ) {
                 $isValid = TRUE;
             } else {
-                /* The algorithm for validating the control digits of a NIE number is
+                /* The algorithm for validating the check digits of a NIE number is
                     identical to the altorithm for validating NIF numbers. We only have to
                     replace Y, X and Z with 1, 0 and 2 respectively; and then, run
                     the NIF altorithm */
@@ -146,7 +146,7 @@
 
    /*
     *   This function validates a Spanish identification number
-    *   verifying its control digits.
+    *   verifying its check digits.
     *
     *   This function is intended to work with CIF numbers.
     *
@@ -155,7 +155,7 @@
     *
     *   This function requires:
     *       - isValidCIFFormat
-    *       - getCIFControlDigit
+    *       - getCIFCheckDigit
     *
     *   This function returns:
     *       TRUE: If specified identification number is correct
@@ -180,7 +180,7 @@
         $writtenDigit = substr( $fixedDocNumber, -1, 1 );
 
         if( isValidCIFFormat( $fixedDocNumber ) == 1 ) {
-            $correctDigit = getCIFControlDigit( $fixedDocNumber );
+            $correctDigit = getCIFCheckDigit( $fixedDocNumber );
 
             if( $writtenDigit == $correctDigit ) {
                 $isValid = TRUE;
@@ -193,7 +193,7 @@
    /*
     *   This function validates the format of a given string in order to
     *   see if it fits with NIF format. Practically, it performs a validation
-    *   over a NIF, except this function does not check the control digit.
+    *   over a NIF, except this function does not check the check digit.
     *
     *   This function is intended to work with NIF numbers.
     *
@@ -219,7 +219,7 @@
    /*
     *   This function validates the format of a given string in order to
     *   see if it fits with NIE format. Practically, it performs a validation
-    *   over a NIE, except this function does not check the control digit.
+    *   over a NIE, except this function does not check the check digit.
     *
     *   This function is intended to work with NIE numbers.
     *
@@ -248,7 +248,7 @@
    /*
     *   This function validates the format of a given string in order to
     *   see if it fits with CIF format. Practically, it performs a validation
-    *   over a CIF, but this function does not check the control digit.
+    *   over a CIF, but this function does not check the check digit.
     *
     *   This function is intended to work with CIF numbers.
     *
@@ -280,10 +280,10 @@
     }
 
    /*
-    *   This function calculates the control digit for an individual Spanish
+    *   This function calculates the check digit for an individual Spanish
     *   identification number (NIF).
     *
-    *   You can replace control digit with a zero when calling the function.
+    *   You can replace check digit with a zero when calling the function.
     *
     *   This function is used by:
     *       - isValidNIF
@@ -292,15 +292,15 @@
     *       - isValidNIFFormat
     *
     *   This function returns:
-    *       - Returns control digit if provided string had a correct NIF structure
+    *       - Returns check digit if provided string had a correct NIF structure
     *       - An empty string otherwise
     *
     *   Usage:
-    *       echo getNIFControlDigit( '335764280' )
+    *       echo getNIFCheckDigit( '335764280' )
     *   Returns:
     *       Q
     */
-    function getNIFControlDigit( $docNumber ) {
+    function getNIFCheckDigit( $docNumber ) {
         $keyString = 'TRWAGMYFPDXBNJZSQVHLCKE';
 
         $fixedDocNumber = "";
@@ -332,10 +332,10 @@
     }
 
    /*
-    *   This function calculates the control digit for a corporate Spanish
+    *   This function calculates the check digit for a corporate Spanish
     *   identification number (CIF).
     *
-    *   You can replace control digit with a zero when calling the function.
+    *   You can replace check digit with a zero when calling the function.
     *
     *   This function is used by:
     *       - isValidCIF
@@ -344,16 +344,16 @@
     *     - isValidCIFFormat
     *
     *   This function returns:
-    *       - The correct control digit if provided string had a
+    *       - The correct check digit if provided string had a
     *         correct CIF structure
     *       - An empty string otherwise
     *
     *   Usage:
-    *       echo getCIFControlDigit( 'H24930830' );
+    *       echo getCIFCheckDigit( 'H24930830' );
     *   Prints:
     *       6
     */
-    function getCIFControlDigit( $docNumber ) {
+    function getCIFCheckDigit( $docNumber ) {
         $fixedDocNumber = "";
 
         $centralChars = "";
@@ -395,7 +395,7 @@
         }
 
         /* If CIF number starts with P, Q, S, N, W or R,
-            control digit sould be a letter */
+            check digit sould be a letter */
         if( preg_match( '/[PQSNWR]/', $firstChar ) ) {
             $correctDigit = substr( "JABCDEFGHI", $correctDigit, 1 );
         }
@@ -450,7 +450,7 @@
     *   For instance, it returns 6 for 123 (as it sums 1 + 2 + 3).
     *
     *   This function is used by:
-    *       - getCIFControlDigit
+    *       - getCIFCheckDigit
     *
     *   Usage:
     *       echo sumDigits( 12345 );
