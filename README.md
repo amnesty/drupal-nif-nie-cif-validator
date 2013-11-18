@@ -9,17 +9,9 @@ How to use it
 Once you've installed and activated it, you'll find a few new validation options.
 To find them, go to your Content menu and edit a webform (or create a new one).
 Then, go to the Webform tab and open the Form Validation option.
-There, you'll find the new validations:
+There, you'll find new validations for NIFs, NIEs and CIFs.
 
-* Validate NIF/NIE/CIF
-* Validate NIF
-* Validate NIE
-* Validate CIF
-
-The first validation, verifies that a user-entered value matches a NIF/NIE/CIF and verifies it's control digit.
-This option will accept the three type of document numbers.
-
-If you want to perform a specific NIF, NIE or CIF validation, you can use the appropriate option.
+![New Validations](https://github.com/amnesty/drupal-nif-nie-cif-validator/raw/master/img/new-validations.png "New Validations")
 
 Dependencies
 ------------
