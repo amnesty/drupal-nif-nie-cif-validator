@@ -100,7 +100,7 @@
                     }
                     // depending on which type of ID, we do a validation or other
                     switch ($tipo) {
-                        case 'NIF':
+                        case 'nif':
                             if ( $numero && ( !isValidNIF( $numero ) ) ) {
                                 $i=0;
                                 // Mark the second box as an error, that is the other amount one
@@ -113,7 +113,7 @@
                                 }
                             }
                             break;
-                        case 'NIE':
+                        case 'nie':
                             if ( $numero && ( !isValidNIE( $numero ) ) ) {
                                 $i=0;
                                 // Mark the second box as an error, that is the other amount one
@@ -126,7 +126,7 @@
                                 }
                             }
                             break;
-                        case 'CIF':
+                        case 'cif':
                             if ( $numero && ( !isValidCIF( $numero ) ) ) {
                                 $i=0;
                                 // Mark the second box as an error, that is the other amount one
