@@ -26,6 +26,11 @@
                     'name' => 'Validate CIF',
                     'description' => t( 'Verifies that a user-entered value matches a CIF and verifies it\'s check digit.' ),
                     'component_types' => array( 'textfield' ) ),
+
+                'validate_ids_separately' => array(
+                    'name' => 'Validate NIF/NIE/CIF separately',
+                    'description' => t( 'Verifies that a user-entered value matches a NIF/NIE/CIF, depending on the option selected, and then verifies it\'s check digit.' ),
+                    'component_types' => array( 'select','textfield' ) ),
                 );
     }
 
@@ -77,6 +82,66 @@
                     return $errors;
                     break;
 
+                case 'validate_ids_separately':
+                    $tipo = "";
+                    $numero = "";
+                    foreach ( $items as $key => $value ) {
+                        // Get the component class to take its value
+                        $component = $components[$key];
+                        $class = $component["extra"]["css_classes"];
+                        switch( $class ){
+                            case "tipo_documento":
+                                $tipo = $value;
+                                break;
+                            case "numero_documento":
+                                $numero = $value;  
+                                break;
+                        }
+                    }
+                    // depending on which type of ID, we do a validation or other
+                    switch ($tipo) {
+                        case 'NIF':
+                            if ( $numero && ( !isValidNIF( $numero ) ) ) {
+                                $i=0;
+                                // Mark the second box as an error, that is the other amount one
+                                foreach( $items as $key => $value){
+                                    if($i==1){
+                                        $errors[$key] = t( '%item is not a valid NIF',
+                                             array( '%item' => $components[ $key ][ "name" ] ) );
+                                    }
+                                    $i++;
+                                }
+                            }
+                            break;
+                        case 'NIE':
+                            if ( $numero && ( !isValidNIE( $numero ) ) ) {
+                                $i=0;
+                                // Mark the second box as an error, that is the other amount one
+                                foreach( $items as $key => $value){
+                                    if($i==1){
+                                        $errors[$key] = t( '%item is not a valid NIE',
+                                             array( '%item' => $components[ $key ][ "name" ] ) );
+                                    }
+                                    $i++;
+                                }
+                            }
+                            break;
+                        case 'CIF':
+                            if ( $numero && ( !isValidCIF( $numero ) ) ) {
+                                $i=0;
+                                // Mark the second box as an error, that is the other amount one
+                                foreach( $items as $key => $value){
+                                    if($i==1){
+                                        $errors[$key] = t( '%item is not a valid CIF',
+                                             array( '%item' => $components[ $key ][ "name" ] ) );
+                                    }
+                                    $i++;
+                                }
+                            }
+                            break;
+                    }
+                    return $errors;
+                    break;
             }
         }
     }
