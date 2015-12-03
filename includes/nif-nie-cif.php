@@ -70,13 +70,13 @@
         $correctDigit = "";
         $writtenDigit = "";
 
-        if( !preg_match( "/^[a-zA-Z]+$/i", substr( $fixedDocNumber, 1, 1 ) ) ) {
+        if( !preg_match( "/^[A-Z]+$/i", substr( $fixedDocNumber, 1, 1 ) ) ) {
             $fixedDocNumber = strtoupper( substr( "000000000" . $docNumber, -9 ) );
         } else {
             $fixedDocNumber = strtoupper( $docNumber );
         }
 
-        $writtenDigit = substr( $docNumber, -1, 1 );
+        $writtenDigit = strtoupper(substr( $docNumber, -1, 1 ));
 
         if( isValidNIFFormat( $fixedDocNumber ) ) {
             $correctDigit = getNIFCheckDigit( $fixedDocNumber );
@@ -213,7 +213,7 @@
     function isValidNIFFormat( $docNumber ) {
         return respectsDocPattern(
             $docNumber,
-            '/^[KLM0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z0-9]/' );
+            '/^[KLM0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][a-zA-Z0-9]/' );
     }
 
    /*
