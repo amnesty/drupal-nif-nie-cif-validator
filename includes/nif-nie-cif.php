@@ -70,7 +70,7 @@
         $correctDigit = "";
         $writtenDigit = "";
 
-        if( !preg_match( "/^[A-Z]+$/i", substr( $fixedDocNumber, 1, 1 ) ) ) {
+        if( !preg_match( "/^[a-zA-Z]+$/i", substr( $fixedDocNumber, 1, 1 ) ) ) {
             $fixedDocNumber = strtoupper( substr( "000000000" . $docNumber, -9 ) );
         } else {
             $fixedDocNumber = strtoupper( $docNumber );
