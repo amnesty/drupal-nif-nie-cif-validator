@@ -23,7 +23,7 @@
     function isValidIdNumber( $docNumber ) {
         $fixedDocNumber = strtoupper( $docNumber );
         return isValidNIF( $fixedDocNumber ) || isValidNIE( $fixedDocNumber ) || isValidCIF( $fixedDocNumber );
-
+    }
 
    /*
     *   This function validates a Spanish identification number
