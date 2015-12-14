@@ -22,21 +22,8 @@
     */
     function isValidIdNumber( $docNumber ) {
         $fixedDocNumber = strtoupper( $docNumber );
+        return isValidNIF( $fixedDocNumber ) || isValidNIE( $fixedDocNumber ) || isValidCIF( $fixedDocNumber );
 
-        if( isValidNIFFormat( $fixedDocNumber ) ) {
-            return isValidNIF( $fixedDocNumber );
-        } else {
-            if( isValidNIEFormat( $fixedDocNumber ) ) {
-                return isValidNIE( $fixedDocNumber );
-            } else {
-                if( isValidCIFFormat( $fixedDocNumber ) ) {
-                    return isValidCIF( $fixedDocNumber );
-                } else {
-                    return FALSE;
-                }
-            }
-        }
-    }
 
    /*
     *   This function validates a Spanish identification number
