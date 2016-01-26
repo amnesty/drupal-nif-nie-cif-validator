@@ -88,7 +88,8 @@
                     foreach ( $items as $key => $value ) {
                         // Get the component class to take its value
                         $component = $components[$key];
-                        $class = explode(" ", $component["extra"]["css_classes"])[0];
+                        $class_exp = explode(" ", $component["extra"]["css_classes"]);
+                        $class = $class_exp[0];
                         switch( $class ){
                             case "tipo_documento":
                                 $tipo = $value;
