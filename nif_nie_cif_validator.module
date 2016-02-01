@@ -107,7 +107,7 @@
                                 // Mark the second box as an error, that is the other amount one
                                 foreach( $items as $key => $value){
                                     if($i==1){
-                                        $errors[$key] = t( 'El NIF no es válido.',
+                                        $errors[$key] = t( '¿Puedes repasar tu número de documento de identidad? Hemos detectado algún error.',
                                              array( '%item' => $components[ $key ][ "name" ] ) );
                                     }
                                     $i++;
@@ -120,7 +120,7 @@
                                 // Mark the second box as an error, that is the other amount one
                                 foreach( $items as $key => $value){
                                     if($i==1){
-                                        $errors[$key] = t( 'El NIE no es válido.',
+                                        $errors[$key] = t( '¿Puedes repasar tu NIE? Hemos detectado algún error.',
                                              array( '%item' => $components[ $key ][ "name" ] ) );
                                     }
                                     $i++;
@@ -133,7 +133,7 @@
                                 // Mark the second box as an error, that is the other amount one
                                 foreach( $items as $key => $value){
                                     if($i==1){
-                                        $errors[$key] = t( 'El CIF no es válido.',
+                                        $errors[$key] = t( '¿Puedes repasar tu CIF? Hemos detectado algún error.',
                                              array( '%item' => $components[ $key ][ "name" ] ) );
                                     }
                                     $i++;
