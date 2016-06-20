@@ -119,12 +119,12 @@
                     identical to the altorithm for validating NIF numbers. We only have to
                     replace Y, X and Z with 1, 0 and 2 respectively; and then, run
                     the NIF altorithm */
-
-                $fixedDocNumber = str_replace('Y', '1', $fixedDocNumber);
-                $fixedDocNumber = str_replace('X', '0', $fixedDocNumber);
-                $fixedDocNumber = str_replace('Z', '2', $fixedDocNumber);
-
-                $isValid = isValidNIF( $fixedDocNumber );
+               $lastLetter = substr($fixedDocNumber, -1);
+               $numberWithoutLetter = substr($fixedDocNumber, 0, -1);
+               $numberWithoutLetter = str_replace(array('X', 'Y', 'Z'), array(0, 1, 2), $rest);
+               
+               $fixedDocNumber = $numberWithoutLetter . $lastLetter;
+               $isValid = isValidNIF( $fixedDocNumber );
             }
         }
 
