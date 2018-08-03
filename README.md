@@ -16,6 +16,10 @@ You must choose one of this validations -let's say Validate NIF, for instance- a
 
 ![Add Rule](https://github.com/amnesty/drupal-nif-nie-cif-validator/raw/master/img/new-rule.png "New Rule")
 
+That's all! :-) Now, if you try to send the form using a non-valid number, Drupal won't accept it.
+
+![Validation](https://github.com/amnesty/drupal-nif-nie-cif-validator/raw/master/img/validation.png "Validation")
+
 
 How to use "Validate NIF/NIE/CIF Separately"
 -------------
@@ -23,10 +27,12 @@ If you choose "Validate NIF/NIE/CIF Separately", you have to validate both field
 
 You also need to add CSS classes to the fields "document type" and "document number" just to let the validator distinguish which one is it.
 
+![Fields](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_182.png "Fields")
 
-That's all! :-) Now, if you try to send the form using a non-valid number, Drupal won't accept it.
+![Document_type](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_180.png "Document type")
 
-![Validation](https://github.com/amnesty/drupal-nif-nie-cif-validator/raw/master/img/validation.png "Validation")
+![Document_number](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_181.png "Document number")
+
 
 Dependencies
 ------------
