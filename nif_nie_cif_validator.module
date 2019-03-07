@@ -95,7 +95,7 @@
                                 $tipo = $value;
                                 break;
                             case "numero_documento":
-                                $numero = $value;  
+                                $numero = $value;
                                 break;
                         }
                     }
@@ -127,7 +127,7 @@
                                 }
                             }
                             break;
-                        case 'cif':
+                        /*case 'cif':
                             if ( $numero && ( !isValidCIF( $numero ) ) ) {
                                 $i=0;
                                 // Mark the second box as an error, that is the other amount one
@@ -139,7 +139,7 @@
                                     $i++;
                                 }
                             }
-                            break;
+                            break;*/
                     }
                     return $errors;
                     break;
