@@ -10,7 +10,7 @@ This module adds some extra validations to Drupal's [Webform Validation](https:/
 
 Once you've installed and activated it, you'll find a few new validation options. To find them, go to your Content menu and edit a webform (or create a new one). Then, go to the Webform tab and open the Form Validation option. There, you'll find new validations for NIFs, NIEs and CIFs.
 
-![New Validations](https://github.com/amnesty/drupal-nif-nie-cif-validator/raw/master/img/new-validations.png "New Validations")
+![New Validations](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_179.png "New Validations")
 
 You must choose one of this validations -let's say Validate NIF, for instance- and, then, specify the field you want to validate.
 
@@ -19,6 +19,20 @@ You must choose one of this validations -let's say Validate NIF, for instance- a
 That's all! :-) Now, if you try to send the form using a non-valid number, Drupal won't accept it.
 
 ![Validation](https://github.com/amnesty/drupal-nif-nie-cif-validator/raw/master/img/validation.png "Validation")
+
+
+How to use "Validate NIF/NIE/CIF Separately"
+-------------
+If you choose "Validate NIF/NIE/CIF Separately", you have to validate both fields "document type" and "document number". This is because depending on your "document type" option, the system will validate differently the document nummber.
+
+You also need to add CSS classes to the fields "document type" and "document number" just to let the validator distinguish which one is it.
+
+![Fields](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_182.png "Fields")
+
+![Document_type](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_180.png "Document type")
+
+![Document_number](https://github.com/amnesty/drupal-nif-nie-cif-validator/blob/master/img/Selection_181.png "Document number")
+
 
 Dependencies
 ------------
